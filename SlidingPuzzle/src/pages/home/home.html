@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    Sliding Puzzle 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+ <div class="cont"> 
+   <div class="box">
+ <div class='msg'>  Moves <so>  </so> far: {{ count }} move </div>
+   <div class="board">
+
+  <img class="cell" *ngFor="let img of board; let i = index"  src="{{ img }}" (click)="move(i)">   
+   </div>
+    </div>
+
+   <div class="control">
+      <button class='btn' ion-button (click)="shuffle()"> New Game </button>
+     <button  class='btn' ion-button (click)="solve()"> Solve Puzzle </button>
+         <div class='msg'> {{msg}} </div>
+   </div>  
+
+ </div>
+
+
+
+</ion-content>

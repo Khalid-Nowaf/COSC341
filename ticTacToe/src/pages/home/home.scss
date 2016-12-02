@@ -1,0 +1,60 @@
+ page-home {
+
+     .cont {
+         content: "";
+         display: flex;
+        //  background: grey;
+         width: 100%;
+         height: 100%;
+         flex-wrap: wrap;
+         justify-content: center;
+         
+         .board {
+             content: "";
+             display: flex;
+            //  background: pink;
+             width: 100%;
+             max-width: 300px;
+             max-height: 400px;
+             height: 60%;
+            
+             flex-wrap: wrap;
+             justify-content: space-around;
+             align-items: center;
+             align-self: center;
+
+             .cell {
+                 content: "";
+                 display: flex;
+                 background: lightgray;
+                 width: 30%;
+                 height: 30%;
+                 justify-content: center;
+                 font-size: 30pt;
+                box-shadow: 2px 2px 1px gray;
+
+                 .cell-text {
+                     display: flex;
+                    align-self: center;
+                 }
+             }
+
+
+            
+         }
+         .control {
+             width: 100%;
+             height: 30%;
+             content: "";
+             display: flex;
+            //  background: aqua;
+             align-content: center;
+             justify-content: center;
+             text-justify: center;
+             align-items: center;
+             
+         }
+     }
+
+ }
+

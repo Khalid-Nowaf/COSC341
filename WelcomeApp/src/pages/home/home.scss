@@ -1,0 +1,40 @@
+ .main{
+     /*background: gray;*/
+     display: flex;
+     width: 100%;
+     height: 100%;
+     flex-direction: column;
+     align-items:space-between;
+     justify-content: flex-end;
+
+    
+     
+ }
+.f-item {
+    display: flex;
+    flex-grow: 1;
+    /*background: lightgreen;*/
+     align-self: stretch ;
+     /*align-content: flex-end;*/
+    h1 { 
+       /*background: pink; */
+       margin: 0 auto;
+       display: flex;
+       font-size: 7vmax;
+       text-align: center;
+       align-self: flex-end;
+    }
+    img {
+       
+        /*background: aqua;*/
+        display: flex;
+        /*align-self: center;*/
+        height: 30vmax;
+        /*align-content: flex-end;*/
+        /*width: 60vmax;*/
+        /*max-width: 90%;*/
+        margin:  auto ;
+      
+    }
+}
+

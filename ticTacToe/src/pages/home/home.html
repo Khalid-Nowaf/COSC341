@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      TicTacToe
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+<div class="cont"> 
+
+ <div class="board" >
+
+  <div class="cell"  *ngFor="let b of board; let i = index"  (click)="play(i)"> <div class="cell-text"> {{ b }} </div> </div>
+  
+</div>
+
+  <div class="control">
+    <h2> {{msg}} </h2>
+  </div>  
+
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+   <button ion-button block (click)='buildBoard()'> New Game </button>
+  </ion-toolbar>
+</ion-footer>
+
+</ion-content>

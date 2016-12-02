@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color='dark'>
+    <ion-title>
+     DMT TRIP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+
+
+
+
+ <div  #home (click)='move($event)'> </div>
+
+
+ <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="aperture"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button (click)='changeSlices("add")' ion-fab><ion-icon name="add"></ion-icon></button>
+      <button (click)='changeSlices("remove")' ion-fab><ion-icon name="remove"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab left bottom>
+    <button ion-fab color="secondary"><ion-icon name="qr-scanner"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button (click)='pickImg()' ion-fab><ion-icon name="camera"></ion-icon></button>
+      <button (click)='saveImg()' ion-fab><ion-icon name="download"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

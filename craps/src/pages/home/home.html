@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+     Craps 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+
+    <ion-row class='wel'>
+        
+          <h6>  Welcome</h6>
+    </ion-row>
+
+    <ion-row center>
+      <img src="assets/img/crap3.png">
+    </ion-row>
+
+    <ion-row center>
+      <ion-col width-50>
+
+        <ion-row center>
+          <h6>Your points: {{ point || ''}}</h6>
+        </ion-row>
+
+        <ion-row center>
+          <h6>You rolled: {{ rolled || ''}}</h6>
+        </ion-row>
+
+      </ion-col>
+
+      <!--crap IMGS-->
+      <ion-col width-50>
+
+        <ion-row > 
+           <ion-col width-50> <img src="{{die1}}"> </ion-col>
+            <ion-col width-50> <img src="{{die2}}"> </ion-col>
+        </ion-row>
+
+         <ion-row > 
+           <ion-col width-50> <img src="{{die3}}"> </ion-col>
+           <ion-col width-50> <img src="{{die4}}"> </ion-col>
+        </ion-row>
+        
+
+      </ion-col>
+    </ion-row>
+
+    <!--End of Row 3-->
+
+    <ion-row>
+
+     <ion-col width-50> 
+        <button ion-button block > Play </button>
+     </ion-col> 
+
+     <ion-col width-50> 
+        <button ion-button block [disabled]='{{ 1 == 1 }}'> ROLL </button>
+     </ion-col> 
+
+    </ion-row>
+
+    <!--End of Row 4-->
+
+    <ion-row>
+      <h6 *ngIf="die3 != dice[0]" > Your Rolled: Y </h6>
+    </ion-row>
+
+     <ion-row>
+      <h6> {{ msg }} </h6>
+    </ion-row>
+
+
+  </ion-grid>
+
+</ion-content>

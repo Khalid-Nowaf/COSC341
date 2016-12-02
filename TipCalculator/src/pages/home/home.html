@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color='nav-c'>
+    <ion-title>Tip Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--<div class="box"> sdfsdf </div>-->
+
+  <div class="boxo">
+    <div class="contant">{{amountIn == '0' ? 'Enter Amount' : '$'+amountIn}}</div>
+  </div>
+
+  <ion-item no-lines>
+    <ion-range  padding min='0' max='30' color="tip" (ionChange)='calc()'  [(ngModel)]="tipIn">
+      <ion-label class='fontA' range-left>{{tipIn}}%</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <div class="row">
+    <div class="col1">
+      <div class="contant">Tip</div>
+    </div>
+    <div class="col2">
+      <div class="contant">${{tipOut}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col1">
+      <div class="contant">Total</div>
+    </div>
+    <div class="col2">
+      <div class="contant">${{totalOut}}</div>
+    </div>
+  </div>
+
+  <ion-footer>
+    <div class="keyboard">
+      <button class="key-btn" ion-button outline full (click)='add("1")'> 1 </button>
+      <button class="key-btn" ion-button outline full (click)='add("2")'> 2 </button>
+      <button class="key-btn" ion-button outline full (click)='add("3")'> 3 </button>
+      <button class="key-btn"  disabled='true' ion-button outline full> - </button>
+      <button class="key-btn" ion-button outline full (click)='add("4")'> 4 </button>
+      <button class="key-btn" ion-button outline full (click)='add("5")'> 5 </button>
+      <button class="key-btn" ion-button outline full (click)='add("6")'> 6 </button>
+      <button class="key-btn" disabled='true' ion-button outline full> , </button>
+      <button class="key-btn" ion-button outline full (click)='add("7")'> 7</button>
+      <button class="key-btn" ion-button outline full (click)='add("8")'> 8 </button>
+      <button class="key-btn" ion-button outline full (click)='add("9")'> 9 </button>
+      <button class="key-btn" ion-button outline full [disabled]='amountIn == "0" ' (click)='remove()'> <ion-icon name="backspace"></ion-icon>  </button>
+      <button class="key-btn" ion-button outline full [disabled]='(isD)' (click)='add(".")'> . </button>
+      <button class="key-btn" ion-button outline full (click)='add("0")'> 0 </button>
+      <button class="key-btn"  disabled='true' ion-button outline full> _ </button>
+      <button class="enter" ion-button outline [disabled]='amountIn == "0" ' 
+      full (click)='clear()' > 
+      <ion-icon name="return-left"> </ion-icon> 
+      </button>
+    </div>
+  </ion-footer>
+</ion-content>
