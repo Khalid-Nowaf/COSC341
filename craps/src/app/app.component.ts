@@ -13,12 +13,13 @@ export class MyApp {
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
+      // change status bar color
+       StatusBar.backgroundColorByHexString('#1A237E');
+      // allow user rotate
+       
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.overlaysWebView(true);
-      StatusBar.backgroundColorByHexString('#004D40');
       StatusBar.styleDefault();
-
       Splashscreen.hide();
     });
   }

@@ -28,7 +28,7 @@ export class HomePage {
 
   buildBoard(){
      for( let i = 0; i < 16 ; i++){
-      this.board.push('/assets/img/'+i+'.png');
+      this.board.push('assets/img/'+i+'.png');
     }
   }
 
@@ -70,7 +70,7 @@ export class HomePage {
     setB() {
       this.Blank = Number(
         this.board.findIndex( el => {
-        return el == '/assets/img/15.png';
+        return el == 'assets/img/15.png';
        })
       );
     }
@@ -104,7 +104,7 @@ export class HomePage {
     check() {
         let s = true;
       for(let i = 0; i <= 15 ; i++) {
-        if(this.board[i] != '/assets/img/'+i+'.png')
+        if(this.board[i] != 'assets/img/'+i+'.png')
         s = false;
       }
       return s;
@@ -112,7 +112,7 @@ export class HomePage {
 
     solve() {
        for( let i = 0; i < 16 ; i++){
-      this.board[i] = '/assets/img/'+i+'.png';
+      this.board[i] = 'assets/img/'+i+'.png';
     }
 
     this.setB();

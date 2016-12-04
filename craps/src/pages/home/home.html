@@ -20,13 +20,13 @@
     </ion-row>
 
     <ion-row center>
-      <ion-col width-50>
+      <ion-col width-50 class="f">
 
-        <ion-row center>
+        <ion-row >
           <h6>Your points: {{ point || ''}}</h6>
         </ion-row>
 
-        <ion-row center>
+        <ion-row >
           <h6>You rolled: {{ rolled || ''}}</h6>
         </ion-row>
 
@@ -36,13 +36,13 @@
       <ion-col width-50>
 
         <ion-row > 
-           <ion-col width-50> <img src="{{die1}}"> </ion-col>
-            <ion-col width-50> <img src="{{die2}}"> </ion-col>
+           <ion-col width-50> <img src="assets/img/die{{die1}}.png"> </ion-col>
+            <ion-col width-50> <img src="assets/img/die{{die2}}.png"> </ion-col>
         </ion-row>
 
          <ion-row > 
-           <ion-col width-50> <img src="{{die3}}"> </ion-col>
-           <ion-col width-50> <img src="{{die4}}"> </ion-col>
+           <ion-col width-50> <img src="assets/img/die{{die3}}.png"> </ion-col>
+           <ion-col width-50> <img src="assets/img/die{{die4}}.png"> </ion-col>
         </ion-row>
         
 
@@ -54,11 +54,11 @@
     <ion-row>
 
      <ion-col width-50> 
-        <button ion-button block > Play </button>
+        <button ion-button block (click)='play()'  [disabled]=' status == "again" '> Play </button>
      </ion-col> 
 
      <ion-col width-50> 
-        <button ion-button block [disabled]='{{ 1 == 1 }}'> ROLL </button>
+        <button ion-button block (click)='roll()' [disabled]=' status != "again"'> ROLL </button>
      </ion-col> 
 
     </ion-row>
@@ -66,11 +66,15 @@
     <!--End of Row 4-->
 
     <ion-row>
-      <h6 *ngIf="die3 != dice[0]" > Your Rolled: Y </h6>
+      <h6 *ngIf="status == 'again' && rolled != 0" > Your Rolled: {{rolled}} </h6>
     </ion-row>
 
      <ion-row>
       <h6> {{ msg }} </h6>
+    </ion-row>
+
+     <ion-row *ngIf="status == 'loss' || status == 'win'">
+      <h6> Click Play to play again </h6>
     </ion-row>
 
 

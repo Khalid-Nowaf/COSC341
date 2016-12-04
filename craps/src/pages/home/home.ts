@@ -3,13 +3,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 
-enum STATUS {
-  NEW,
-  AGAIN,
-  WIN,
-  LOSS
-}
-
 
 @Component({
   selector: 'page-home',
@@ -17,67 +10,92 @@ enum STATUS {
 })
 
 export class HomePage {
-  point:number;
-  rolled:number;
-  die1:string;
-  die2:string;
-  die3:string;
-  die4:string;
-  dice:Array<string>;
-  status:STATUS;
-  msg:string;
+  point: number;
+  rolled: number;
+  die1: number;
+  die2: number;
+  die3: number;
+  die4: number;
+  status: string;
+  msg: string;
 
 
-  
+
 
   constructor(public navCtrl: NavController) {
 
     this.loadDice();
+     this.msg = 'Click Play to start the game!';
+  }
+
+  loadDice() {
+    this.status = 'new';
     this.point = 0;
     this.rolled = 0;
-    this.msg = 'Click Play to start the game!';
-  }
-
-  loadDice(){
-    this.status = STATUS.NEW;
-    this.dice = [];
-    this.dice[0] = "assets/img/blank1.png";
-
-    for(let i = 1; i <= 6; i++){
-      this.dice[i] = "assets/img/die"+i+".png";
-    }
-
+   
     // blank dice
-    this.die1 = this.dice[0];
-    this.die2 = this.dice[0];
-    this.die3 = this.dice[0];
-    this.die4 = this.dice[0];
+    this.die1 = 0;
+    this.die2 = 0;
+    this.die3 = 0;
+    this.die4 = 0;
 
   }
 
-  roll(){
-    let d1 = Math.floor(Math.random() * 6) + 1 ;
-    let d2 = Math.floor(Math.random() * 6) + 1 ;
+  play() {
+    this.loadDice();
+    let d1 = Math.floor(Math.random() * 6) + 1;
+    let d2 = Math.floor(Math.random() * 6) + 1;
+    this.die1 = d1;
+    this.die2 = d2;
+    this.check();
+  }
 
-    if(this.status == STATUS.NEW){
-      this.die1 = this.dice[d1];
-      this.die2 = this.dice[d2];
-      this.check();
-    }else {
-      this.die3 = this.dice[d1];
-      this.die4 = this.dice[d2];
-      this.check();
+  roll() {
+    let d1 = Math.floor(Math.random() * 6) + 1;
+    let d2 = Math.floor(Math.random() * 6) + 1;
+
+    this.die3 = d1;
+    this.die4 = d2;
+    this.check();
+  }
+
+  check() {
+
+    if (this.status == "again") { // if this a roll
+      let sum = this.die3 + this.die4;
+      this.rolled = sum;
+      if (sum == 7) {
+        this.status = "loss";
+      } else if (sum == this.point){
+        this.status = 'win';
+      }
+      else {
+        this.rolled = sum;
+      }
+    } else if (this.status == "new"){ // if this just new play
+       let sum = this.die1 + this.die2;
+       this.point =sum;
+      if (sum == 7 || sum == 11) {
+        this.status ="win";
+      } else if (sum == 2 || sum == 3 || sum == 12) {
+        this.status = "loss";
+      } else {
+        this.status ="again";
+        this.point = sum;
+      }
     }
-  }
 
-  check(){
-
-    if(this.status == STATUS.NEW){
-        this.status = STATUS.AGAIN;
-         this.msg = 'Roll Again';
-    }else if(this.status == STATUS.AGAIN){
-        this.status = STATUS.WIN;
-        this.msg = 'You Win!';
+    switch (this.status) {
+      case "win":
+        this.msg = "YOU WIN !!";
+        break;
+      case "loss":
+        this.msg = 'Craps !, You lost the game !!';
+        break;
+      case "again":
+        this.msg = "Roll Again !";
+      default:
+        break;
     }
   }
 
