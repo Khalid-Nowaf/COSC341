@@ -19,7 +19,7 @@ course labs and exercises
 ####  after the project is running in the browser, hit Ctr+C to stop.
 #### 4 - add ios and android 
 #### cmd : ionic platform add ios
-#### cmd : ionic platfrom add 
+#### cmd : ionic platfrom add android
 
 #### 5 - update the plugins
 #### cmd : ionic plugin update
