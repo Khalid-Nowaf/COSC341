@@ -5,7 +5,7 @@ course labs and exercises
 # to Build any ionic project do the following :
 
 ##install dependacy and tools 
-### Install nodejs 
+### Install nodejs  https://nodejs.org/en/
 ### install ionic and cordova 
  #### cmd : npm install -g cordova ionic
   
